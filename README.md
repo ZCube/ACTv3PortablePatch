@@ -1,5 +1,14 @@
 # ACTv3PortablePatch
 
+# Requirements
+1. Microsoft .NET Framework 4.6.x Developer Pack
+https://www.microsoft.com/en-us/download/details.aspx?id=49978
+
+2. Advanced Combat Tracker v3
+http://advancedcombattracker.com/download.php
+
+3. Advanced Combat Tracker Plugins ....
+
 # Usage
 
 ## 1. Prepare ACT v3 Settings (with Plugins) ##
