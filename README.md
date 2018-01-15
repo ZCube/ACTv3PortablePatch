@@ -46,3 +46,7 @@ Example (FF XIV):
 
 
 
+## Note ##
+
+This repository is no longer maintained.
+
