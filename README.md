@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/2wvuvmjwk7dnabsk?svg=true)](https://ci.appveyor.com/project/ZCube/actv3portablepatch)
+
 # ACTv3PortablePatch
 
 # Requirements
