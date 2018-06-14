@@ -1,0 +1,3 @@
+src/_conanfile*.py
+src/bin/
+src/build/
