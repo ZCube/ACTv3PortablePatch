@@ -10,39 +10,6 @@ endif()
 
 include(${CMAKE_BINARY_DIR}/conan.cmake)
 
-if(CMAKE_SIZEOF_VOID_P EQUAL 4)
-  configure_file(conanfile.py "${CMAKE_CURRENT_SOURCE_DIR}/_conanfile86.py" @ONLY)
-  conan_cmake_run(CONANFILE "_conanfile86.py"
-                BASIC_SETUP
-                SETTINGS arch=x86
-                BUILD missing)
-elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
-  configure_file(conanfile.py "${CMAKE_CURRENT_SOURCE_DIR}/_conanfile64.py" @ONLY)
-  conan_cmake_run(CONANFILE "_conanfile64.py"
-                BASIC_SETUP
-                SETTINGS arch=x86_64
-                BUILD missing)
-endif()
-
-ADD_DEFINITIONS(
-  ${CONAN_DEFINES_BOOST}
-  -DUNICODE
-  -D_UNICODE
-)
-
-ADD_EXECUTABLE(ActPortablePatch
-  version.h
-  version.cpp
-  main.cpp
-  resource.h
-  Resource.rc
-  Setting.il
-  util.h
-  util.cpp
-  System.EnvironmentMod.GetFolderPath.il
-)
-
-conan_target_link_libraries(ActPortablePatch)
 
 IF(MSVC)
   OPTION(USE_STATIC_RUNTIME_LIBRARY "Use Static Runtime Library" ON)
@@ -104,4 +71,37 @@ IF(MSVC)
       endforeach()
   ENDIF(USE_LINK_TIME_OPTIMIZATION)
 ENDIF()
- 
+
+if(CMAKE_SIZEOF_VOID_P EQUAL 4)
+  configure_file(conanfile.py "${CMAKE_CURRENT_SOURCE_DIR}/_conanfile86.py" @ONLY)
+  conan_cmake_run(CONANFILE "_conanfile86.py"
+                BASIC_SETUP
+                SETTINGS arch=x86
+                BUILD missing)
+elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
+  configure_file(conanfile.py "${CMAKE_CURRENT_SOURCE_DIR}/_conanfile64.py" @ONLY)
+  conan_cmake_run(CONANFILE "_conanfile64.py"
+                BASIC_SETUP
+                SETTINGS arch=x86_64
+                BUILD missing)
+endif()
+
+ADD_DEFINITIONS(
+  ${CONAN_DEFINES_BOOST}
+  -DUNICODE
+  -D_UNICODE
+)
+
+ADD_EXECUTABLE(ActPortablePatch
+  version.h
+  version.cpp
+  main.cpp
+  resource.h
+  Resource.rc
+  Setting.il
+  util.h
+  util.cpp
+  System.EnvironmentMod.GetFolderPath.il
+)
+
+conan_target_link_libraries(ActPortablePatch)
